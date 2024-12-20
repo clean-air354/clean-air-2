@@ -2,20 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root theme variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1e90ff; /* Primary blue color for accents */
+  --secondary: #34d399; /* Secondary green for CTA buttons */
+  --danger: #ef4444; /* Red for warnings or alerts */
+  --muted: #9ca3af; /* Muted gray for subtle text */
+  --border-color: #e5e7eb; /* Border color for cards, inputs, etc. */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --border-color: #374151; /* Dark border color */
   }
 }
 
+/* Base body styling */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-[var(--foreground)] bg-[var(--background)] font-sans;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1 {
+  @apply text-4xl font-bold my-4;
+}
+
+h2 {
+  @apply text-3xl font-semibold my-3;
+}
+
+h3 {
+  @apply text-2xl font-medium my-2;
+}
+
+p {
+  @apply text-base my-2;
+}
+
+/* Links */
+a {
+  @apply text-[var(--primary)] hover:underline transition-colors;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-block px-6 py-2 rounded-lg font-medium transition-all;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary)] text-white hover:bg-blue-600;
+}
+
+.btn-secondary {
+  @apply bg-[var(--secondary)] text-white hover:bg-emerald-600;
+}
+
+.btn-danger {
+  @apply bg-[var(--danger)] text-white hover:bg-red-600;
+}
+
+/* Forms */
+input,
+textarea {
+  @apply border border-[var(--border-color)] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)];
+}
+
+/* Cards */
+.card {
+  @apply bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 border border-[var(--border-color)];
+}
+
+/* Utility Classes for Spacing */
+.container {
+  @apply mx-auto max-w-7xl px-4;
+}
+
+/* Navbar */
+.navbar {
+  @apply flex items-center justify-between py-4 bg-[var(--background)] shadow-md;
+}
+
+.nav-link {
+  @apply text-[var(--foreground)] hover:text-[var(--primary)] px-4;
+}
+
+/* Footer */
+.footer {
+  @apply text-center py-6 bg-[var(--background)] text-[var(--muted)];
 }
