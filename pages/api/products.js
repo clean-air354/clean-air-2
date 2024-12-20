@@ -3,10 +3,16 @@
 import dbConnect from '@/config/database';
 import Product from '@/models/Product';
 
+
+
+
 export default async function handler(req, res) {
   await dbConnect();
 
   const { method } = req;
+
+
+  
 
   switch (method) {
     case 'GET':

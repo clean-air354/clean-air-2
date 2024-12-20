@@ -6,8 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "server":"nodemon server.js"
+    "lint": "next lint"
+    
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.4",
